@@ -10,7 +10,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -46,6 +45,14 @@ public class UserResource {
        @DeleteMapping(value = "/{id}")
        public ResponseEntity<Void> deleteById(@PathVariable String id){
               service.deleteById(id);
+              return ResponseEntity.noContent().build();
+       }
+
+       @PutMapping(value = "/{id}")
+       public ResponseEntity<Void> update(@RequestBody UserDTO obj, @PathVariable String id){
+              User user = service.fromDTO(obj);
+              user.setId(id);
+              service.update(user);
               return ResponseEntity.noContent().build();
        }
 }
