@@ -46,5 +46,8 @@ public class TestConfig implements CommandLineRunner {
 
         postRepository.saveAll(Arrays.asList(post1,post2));
 
+        matheus.getPosts().addAll(Arrays.asList(post1, post2));
+        userRepository.save(matheus);
+
     }
 }
