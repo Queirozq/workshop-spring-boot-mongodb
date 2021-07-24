@@ -1,5 +1,6 @@
 package com.demo.workshopmongo.resources;
 
+import com.demo.workshopmongo.domain.Post;
 import com.demo.workshopmongo.domain.User;
 import com.demo.workshopmongo.dto.UserDTO;
 import com.demo.workshopmongo.services.UserService;
@@ -10,7 +11,10 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 import java.net.URI;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
@@ -55,4 +59,10 @@ public class UserResource {
               service.update(user);
               return ResponseEntity.noContent().build();
        }
+
+      @GetMapping(value = "/{id}/posts")
+      public ResponseEntity<Set<Post>> getPost(@PathVariable String id){
+             User user = service.findById(id);
+             return ResponseEntity.ok().body(user.getPosts());
+      }
 }
