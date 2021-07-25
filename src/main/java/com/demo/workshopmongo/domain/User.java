@@ -16,7 +16,7 @@ public class User implements Serializable {
     private String email;
 
     @DBRef(lazy = true)
-    private Set<Post> posts = new HashSet<>();
+    private List<Post> posts = new ArrayList<>();
 
     public User() {
     }
@@ -51,7 +51,7 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Set<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 

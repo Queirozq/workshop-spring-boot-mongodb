@@ -11,8 +11,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 
 import java.net.URI;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -61,7 +59,7 @@ public class UserResource {
        }
 
       @GetMapping(value = "/{id}/posts")
-      public ResponseEntity<Set<Post>> getPost(@PathVariable String id){
+      public ResponseEntity<List<Post>> getPost(@PathVariable String id){
              User user = service.findById(id);
              return ResponseEntity.ok().body(user.getPosts());
       }
