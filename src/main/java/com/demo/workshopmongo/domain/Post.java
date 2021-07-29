@@ -4,7 +4,6 @@ package com.demo.workshopmongo.domain;
 import com.demo.workshopmongo.dto.AuthorDTO;
 import com.demo.workshopmongo.dto.CommentDTO;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
@@ -17,7 +16,7 @@ import java.util.Objects;
 public class Post implements Serializable {
 
     @Id
-    private String Id;
+    private String id;
     private Date date;
     private String title;
     private String body;
@@ -30,19 +29,19 @@ public class Post implements Serializable {
     }
 
     public Post(String id, Date date, String title, String body, AuthorDTO author) {
-        this.Id = id;
+        this.id = id;
         this.date = date;
         this.title = title;
         this.body = body;
         this.author = author;
     }
 
-    public String getId() {
-        return Id;
+    public String getid() {
+        return id;
     }
 
-    public void setId(String id) {
-        Id = id;
+    public void setid(String id) {
+        id = id;
     }
 
     public Date getDate() {
@@ -86,11 +85,11 @@ public class Post implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Post)) return false;
         Post post = (Post) o;
-        return Objects.equals(Id, post.Id);
+        return Objects.equals(id, post.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Id);
+        return Objects.hash(id);
     }
 }
