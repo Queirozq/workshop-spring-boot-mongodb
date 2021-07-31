@@ -1,1 +1,1 @@
-Api restful feita no spring com mongoDB de um de um banco de dados com logical layers e modelo de dominio.
+Api restful feita no spring com mongoDB de um  banco de dados com logical layers e modelo de dominio.
